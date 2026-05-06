@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>CAFFE SALMAN</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+.carousel-item {
+  transition: transform 1.2s ease-in-out;
+}
+
+.carousel-inner {
+  border-radius: 0 0 20px 20px;
+  overflow: hidden;
+}
+
+
+</style>
+
+</head>
+<body class="bg-[#f5efe6] text-[#2d2d2d]">
+
+  <!-- Navbar -->
+  <nav class="bg-gradient-to-r from-[#6b4f4f] to-[#a98467] text-white p-4 flex justify-between items-center">
+    <h1 class="font-bold text-lg">RUANG RASA</h1>
+    <button onclick="toggleMenu()" class="md:hidden text-2xl">☰</button>
+    <div class="hidden md:flex space-x-4">
+      <a href="#">Home</a>
+      <a href="#menu">Menu</a>
+      <a href="#order">Pesan</a>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="hidden bg-[#6b4f4f] text-white p-4 md:hidden">
+    <a href="#menu" class="block mb-2">Menu</a>
+    <a href="#order" class="block">Pesan</a>
+  </div>
+
+  <!-- Hero -->
+  <section class="text-center pt-0 pb-6 bg-[#fffaf5]">
+    <div id="carouselExampleIndicators" class="carousel slide"
+     data-bs-ride="carousel"
+     data-bs-interval="3000"
+     data-bs-pause="false">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+
+  <div class="carousel-item active position-relative">
+  <img src="https://i.imgur.com/tvdIdsE.jpg"
+    class="d-block w-100"
+    style="height:220px; object-fit:cover;">
+
+  <div class="position-absolute top-50 start-50 translate-middle text-white text-center">
+  </div>
+</div>
+
+<div class="carousel-item position-relative">
+  <img src="https://i.imgur.com/SuInqIZ.jpg"
+    class="d-block w-100"
+    style="height:220px; object-fit:cover;">
+
+  <div class="position-absolute top-50 start-50 translate-middle text-white text-center">
+  </div>
+</div>
+
+<div class="carousel-item position-relative">
+  <img src="https://i.imgur.com/0kC3Zsk.jpg"
+    class="d-block w-100"
+    style="height:220px; object-fit:cover;">
+
+  <div class="position-absolute top-50 start-50 translate-middle text-white text-center">
+  </div>
+</div>
+
+</div>
+
+<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+  <span class="carousel-control-prev-icon"></span>
+</button>
+
+<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+  <span class="carousel-control-next-icon"></span>
+</button>
+
+</div>
+    <h2 class="text-xl md:text-2xl font-bold">Selamat Datang di Coffe Ruang Rasa</h2>
+    <p class="text-gray-600">Pesan minuman favoritmu ☕</p>
+  </section>
+
+  <!-- Search -->
+  <div class="max-w-4xl mx-auto p-4">
+    <input type="text" id="search" placeholder="Cari menu..."
+      onkeyup="cariMenu()"
+      class="w-full p-3 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-[#a98467]">
+  </div>
+
+  <div class="max-w-4xl mx-auto px-4 pb-2 flex gap-2 flex-wrap">
+
+  <button onclick="setKategori('Semua')" class="bg-gray-300 px-3 py-1 rounded">
+    Semua
+  </button>
+
+  <button onclick="setKategori('Coffe')" class="bg-gray-300 px-3 py-1 rounded">
+    Coffe
+  </button>
+
+  <button onclick="setKategori('Tea')" class="bg-gray-300 px-3 py-1 rounded">
+    Tea
+  </button>
+
+  <button onclick="setKategori('Coklat')" class="bg-gray-300 px-3 py-1 rounded">
+    Coklat
+  </button>
+
+  <button onclick="setKategori('Air')" class="bg-gray-300 px-3 py-1 rounded">
+    Air
+  </button>
+
+  <button onclick="setKategori('Bundling')" class="bg-gray-300 px-3 py-1 rounded">
+    Bundling
+  </button>
+
+</div>
+
+  <section id="menu" class="py-4 px-3 max-w-5xl mx-auto grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-3.5">
+
+  <div class="bg-white p-3 rounded-xl shadow-md hover:shadow-lg transition text-center produk" data-kategori="Coffe">
+    <img src="https://www.theflavorbender.com/wp-content/uploads/2021/04/Brown-Sugar-iced-coffee-4346-2.jpg"
+      class="w-full h-28 object-cover rounded-lg mb-2">
+    <h3 class="nama font-semibold text-sm">Brown Sugar COffe</h3>
+    <p class="text-[#6b4f4f] font-bold text-sm">Rp15000</p>
+    <button onclick="tambahKeKeranjang('Brown Sugar COffe', 15000)"
+      class="mt-2 w-full bg-[#a98467] hover:bg-[#8c6d5a] transition text-white py-1 rounded-lg text-sm">
+      Tambah
+    </button>
+  </div>
+
+  <div class="bg-white p-3 rounded-xl shadow-md hover:shadow-lg transition text-center produk" data-kategori="Coffe">
+    <img src="https://cdn-prd.tongkolspace.com/unakaffe/wp-content/uploads/2024/12/apa-itu-americano.jpg"
+      class="w-full h-28 object-cover rounded-lg mb-2">
+    <h3 class="nama font-semibold text-sm">Black Coffe</h3>
+    <p class="text-[#6b4f4f] font-bold text-sm">Rp8000</p>
+    <button onclick="tambahKeKeranjang('Black Coffe', 8000)"
+      class="mt-2 w-full bg-[#a98467] hover:bg-[#8c6d5a] transition text-white py-1 rounded-lg text-sm">
+      Tambah
+    </button>
+  </div>
+
+  <div class="bg-white p-3 rounded-xl shadow-md hover:shadow-lg transition text-center produk" data-kategori="Coklat">
+    <img src="https://d1vbn70lmn1nqe.cloudfront.net/prod/wp-content/uploads/2023/07/28042143/sedang-tren-ini-cara-membuat-es-coklat-yang-segar-dan-kental-halodoc.jpg.webp"
+      class="w-full h-28 object-cover rounded-lg mb-2">
+    <h3 class="nama font-semibold text-sm">Ice Choco Melt</h3>
+    <p class="text-[#6b4f4f] font-bold text-sm">Rp14000</p>
+    <button onclick="tambahKeKeranjang('Ice Choco Melt', 14000)"
+      class="mt-2 w-full bg-[#a98467] hover:bg-[#8c6d5a] transition text-white py-1 rounded-lg text-sm">
+      Tambah
+    </button>
+  </div>
+
+  <div class="bg-white p-3 rounded-xl shadow-md hover:shadow-lg transition text-center produk" data-kategori="Coklat">
+    <img src="https://api.omela.com/storage/content-editor-images/VPN8zVh5NKjm3VUejlr6ZXr9DFodfn7d8MZ5Tc9d.jpg"
+      class="w-full h-28 object-cover rounded-lg mb-2">
+    <h3 class="nama font-semibold text-sm">Hot Choco Melt</h3>
+    <p class="text-[#6b4f4f] font-bold text-sm">Rp13000</p>
+    <button onclick="tambahKeKeranjang('Hot Choco Melt', 13000)"
+      class="mt-2 w-full bg-[#a98467] hover:bg-[#8c6d5a] transition text-white py-1 rounded-lg text-sm">
+      Tambah
+    </button>
+  </div>
+
+  <div class="bg-white p-3 rounded-xl shadow-md hover:shadow-lg transition text-center produk" data-kategori="Tea">
+    <img src="https://www.nestleprofessional.co.id/sites/default/files/styles/np_article_big/public/2023-11/4%20Kreasi%20Minuman%20dengan%20Bubuk%20Lemon%20Tea.jpg?h=ec041e41&itok=5VABpLHs"
+      class="w-full h-28 object-cover rounded-lg mb-2">
+    <h3 class="nama font-semibold text-sm">Lemon Tea</h3>
+    <p class="text-[#6b4f4f] font-bold text-sm">Rp10000</p>
+    <button onclick="tambahKeKeranjang('Lemon Tea', 10000)"
+      class="mt-2 w-full bg-[#a98467] hover:bg-[#8c6d5a] transition text-white py-1 rounded-lg text-sm">
+      Tambah
+    </button>
+  </div>
+
+  <div class="bg-white p-3 rounded-xl shadow-md hover:shadow-lg transition text-center produk" data-kategori="Tea">
+    <img src="https://www.sukmulsismamedika.com/wp-content/uploads/2017/11/Bahaya-bagi-Kesehatan-Terlalu-Sering-Minum-Es-Teh-Manis-1-960x563.jpg"
+      class="w-full h-28 object-cover rounded-lg mb-2">
+    <h3 class="nama font-semibold text-sm">Sweet Tea</h3>
+    <p class="text-[#6b4f4f] font-bold text-sm">Rp7000</p>
+    <button onclick="tambahKeKeranjang('Sweet Tea', 7000)"
+      class="mt-2 w-full bg-[#a98467] hover:bg-[#8c6d5a] transition text-white py-1 rounded-lg text-sm">
+      Tambah
+    </button>
+  </div>
+
+  <div class="bg-white p-3 rounded-xl shadow-md hover:shadow-lg transition text-center produk" data-kategori="Tea">
+    <img src="https://thumb.viva.id/vivabanyuwangi/1265x711/2025/01/25/6794e63a2aa7e-teh-tawar-atau-manis-manakah-yang-lebih-baik_banyuwangi.jpg"
+      class="w-full h-28 object-cover rounded-lg mb-2">
+    <h3 class="nama font-semibold text-sm">Tea</h3>
+    <p class="text-[#6b4f4f] font-bold text-sm">Rp7000</p>
+    <button onclick="tambahKeKeranjang('Tea', 7000)"
+      class="mt-2 w-full bg-[#a98467] hover:bg-[#8c6d5a] transition text-white py-1 rounded-lg text-sm">
+      Tambah
+    </button>
+  </div>
+
+  <div class="bg-white p-3 rounded-xl shadow-md hover:shadow-lg transition text-center produk" data-kategori="Coffe">
+    <img src="https://japo.co.id/wp-content/uploads/2023/02/Moccacino-Kedelai.jpg"
+      class="w-full h-28 object-cover rounded-lg mb-2">
+    <h3 class="nama font-semibold text-sm">Mochacino Coffe</h3>
+    <p class="text-[#6b4f4f] font-bold text-sm">Rp8000</p>
+    <button onclick="tambahKeKeranjang('Mochacino Coffe', 8000)"
+      class="mt-2 w-full bg-[#a98467] hover:bg-[#8c6d5a] transition text-white py-1 rounded-lg text-sm">
+      Tambah
+    </button>
+  </div>
+
+  <div class="bg-white p-3 rounded-xl shadow-md hover:shadow-lg transition text-center produk" data-kategori="Air">
+  <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjHC9NTw6sSXI5RV6pkrs6d_jEx5VCNYCViw14aZXDk0D8uRgZ76NPGfgTjz1c4Kf-tmPoPQ_p7FYEpu9heLTURqFHfbjKo_qwrwaApP5cw7jJ37RPjFCWsCHlo5j3q_tEHptcyGg30pjE5/s1600/tips+diet+sehat+-+missnidy.jpg"
+    class="w-full h-28 object-cover rounded-lg mb-2">
+  <h3 class="nama font-semibold text-sm">Le Mineral</h3>
+  <p class="text-[#6b4f4f] font-bold text-sm">Rp5000</p>
+  <button onclick="tambahKeKeranjang('Le Mineral', 5000)"
+    class="mt-2 w-full bg-[#a98467] hover:bg-[#8c6d5a] transition text-white py-1 rounded-lg text-sm">
+    Tambah
+  </button>
+</div>
+
+ <div class="bg-white p-3 rounded-xl shadow-md hover:shadow-lg transition text-center produk" data-kategori="Bundling">
+  <img src="c:\Users\Hype\AppData\Local\Packages\5319275A.WhatsAppDesktop_cv1g1gvanyjgm\LocalState\sessions\3475DFEACD49B123AE61B15CB149B69A190FBDAA\transfers\2026-18\WhatsApp Image 2026-05-02 at 15.35.46.jpeg"
+    class="w-full h-28 object-cover rounded-lg mb-2">
+  <h3 class="nama font-semibold text-sm">Chill bitter-swwet</h3>
+  <p class="text-[#6b4f4f] font-bold text-sm">Rp15000</p>
+  <button onclick="tambahKeKeranjang('Chill bitter-sweet', 15000)"
+    class="mt-2 w-full bg-[#a98467] hover:bg-[#8c6d5a] transition text-white py-1 rounded-lg text-sm">
+    Tambah
+  </button>
+</div>
+
+<div class="bg-white p-3 rounded-xl shadow-md hover:shadow-lg transition text-center produk" data-kategori="Bundling">
+  <img src="c:\Users\Hype\AppData\Local\Packages\5319275A.WhatsAppDesktop_cv1g1gvanyjgm\LocalState\sessions\3475DFEACD49B123AE61B15CB149B69A190FBDAA\transfers\2026-18\WhatsApp Image 2026-05-04 at 11.36.08.jpeg"
+    class="w-full h-28 object-cover rounded-lg mb-2">
+  <h3 class="nama font-semibold text-sm">Paket nampol</h3>
+  <p class="text-[#6b4f4f] font-bold text-sm">Rp15000</p>
+  <button onclick="tambahKeKeranjang('Paket nampol', 15000)"
+    class="mt-2 w-full bg-[#a98467] hover:bg-[#8c6d5a] transition text-white py-1 rounded-lg text-sm">
+    Tambah
+  </button>
+</div>
+
+<div class="bg-white p-3 rounded-xl shadow-md hover:shadow-lg transition text-center produk" data-kategori="Bundling">
+  <img src="c:\Users\Hype\AppData\Local\Packages\5319275A.WhatsAppDesktop_cv1g1gvanyjgm\LocalState\sessions\3475DFEACD49B123AE61B15CB149B69A190FBDAA\transfers\2026-19\WhatsApp Image 2026-05-06 at 08.09.19.jpeg"
+    class="w-full h-28 object-cover rounded-lg mb-2">
+  <h3 class="nama font-semibold text-sm">Paket Gacor</h3>
+  <p class="text-[#6b4f4f] font-bold text-sm">Rp18000</p>
+  <button onclick="tambahKeKeranjang('Paket Gacor', 18000)"
+    class="mt-2 w-full bg-[#a98467] hover:bg-[#8c6d5a] transition text-white py-1 rounded-lg text-sm">
+    Tambah
+  </button>
+</div>
+
+</section>
+
+  <!-- Keranjang -->
+  <div class="max-w-xl mx-auto bg-white p-4 rounded-xl shadow mt-6">
+    <h2 class="font-bold mb-2">Keranjang</h2>
+    <ul id="cartList" class="text-sm mb-2"></ul>
+    <p class="font-bold">Total: Rp<span id="total">0</span></p>
+  </div>
+
+  <!-- Form -->
+  <section id="order" class="max-w-xl mx-auto bg-white p-4 rounded-xl shadow mt-6 mb-10">
+    <h2 class="text-lg font-bold mb-4 text-center">Form Pemesanan 📋</h2>
+
+    <input id="nama" type="text" placeholder="👤 Nama Lengkap" class="w-full mb-3 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#a98467] outline-none">
+    <input id="meja" type="text" placeholder="🛎️ Nomor Meja" class="w-full mb-3 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#a98467] outline-none">
+    <input id="catatan" type="text" placeholder="📝 Catatan (opsional)" class="w-full mb-3 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#a98467] outline-none">
+
+    <button onclick="kirimWA()" class="w-full bg-[#a98467] hover:bg-[#8c6d5a] text-white py-3 rounded-lg text-lg">
+      Pesan
+    </button>
+  </section>
+
+  <!-- Modal -->
+  <div id="modalStruk" class="fixed inset-0 bg-black bg-opacity-50 hidden justify-center items-center">
+    <div class="bg-[#fffaf5] w-80 p-5 rounded-xl shadow-lg">
+      <h2 class="text-lg font-bold mb-3 text-center">Struk Pesanan</h2>
+      <div id="strukContent" class="text-sm mb-3"></div>
+      
+
+      <button onclick="kirimWAFix()" class="w-full bg-[#8c6d5a] hover:bg-[#6f5444] text-white py-2 rounded mb-2">
+        Kirim WA
+      </button>
+      <button onclick="tutupStruk()" class="w-full bg-[#8c6d5a] hover:bg-[#6f5444] text-white py-2 rounded mb-2">
+        Batal
+      </button>
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script>
+
+    function setKategori(kategori) {
+  let produk = document.getElementsByClassName("produk");
+
+  for (let i = 0; i < produk.length; i++) {
+    let kategoriProduk = produk[i].getAttribute("data-kategori");
+
+    if (kategori === "Semua") {
+      produk[i].style.display = "block";
+    } else if (kategoriProduk === kategori) {
+      produk[i].style.display = "block";
+    } else {
+      produk[i].style.display = "none";
+    }
+  }
+}
+
+    let keranjang = [];
+
+    function toggleMenu() {
+      document.getElementById("mobileMenu").classList.toggle("hidden");
+    }
+
+    function tambahKeKeranjang(nama, harga) {
+      let item = keranjang.find(p => p.nama === nama);
+      if (item) item.qty++;
+      else keranjang.push({ nama, harga, qty: 1 });
+      renderKeranjang();
+    }
+
+    function renderKeranjang() {
+      let list = document.getElementById("cartList");
+      let total = 0;
+      list.innerHTML = "";
+
+      keranjang.forEach((item, index) => {
+        let subtotal = item.harga * item.qty;
+        total += subtotal;
+
+        list.innerHTML += `
+          <li class="flex justify-between mb-1">
+            ${item.nama} (${item.qty}) - Rp${subtotal}
+            <button onclick="hapusItem(${index})" class="text-red-500">❌</button>
+          </li>
+        `;
+      });
+
+      document.getElementById("total").innerText = total;
+    }
+
+    function hapusItem(index) {
+      keranjang.splice(index, 1);
+      renderKeranjang();
+    }
+
+    function cariMenu() {
+      let input = document.getElementById("search").value.toLowerCase();
+      let produk = document.getElementsByClassName("produk");
+
+      for (let i = 0; i < produk.length; i++) {
+        let nama = produk[i].getElementsByClassName("nama")[0].innerText.toLowerCase();
+        produk[i].style.display = nama.includes(input) ? "block" : "none";
+      }
+    }
+
+    function kirimWA() {
+  let nama = document.getElementById("nama").value;
+  let meja = document.getElementById("meja").value;
+  let catatan = document.getElementById("catatan").value;  // 🆕 BARU
+
+  if (!nama || !meja || keranjang.length === 0) {
+    alert("❌ Isi Nama & Meja dulu!");
+    return;
+  }
+
+  // Update struk dengan catatan
+  let struk = document.getElementById("strukContent");
+  let total = 0;
+  struk.innerHTML = `
+    <div class="text-left">
+      <p><strong>Nama:</strong> ${nama}</p>
+      <p><strong>Meja:</strong> ${meja}</p>
+      ${catatan ? `<p><strong>Catatan:</strong> ${catatan}</p>` : ''}  <!-- 🆕 -->
+      <hr class="my-3 border-gray-300">
+      <p class="font-bold text-[#6b4f4f] mb-2">📋 Daftar Pesanan:</p>
+  `;
+
+  keranjang.forEach(item => {
+    let subtotal = item.harga * item.qty;
+    total += subtotal;
+    struk.innerHTML += `<p>• ${item.nama} x${item.qty} = Rp${subtotal.toLocaleString('id-ID')}</p>`;
+  });
+
+  struk.innerHTML += `<hr class="my-3 border-gray-300"><p class="font-bold text-2xl text-[#6b4f4f]">Total: Rp${total.toLocaleString('id-ID')}</p>`;
+  document.getElementById("modalStruk").classList.remove("hidden");
+  document.getElementById("modalStruk").classList.add("flex");
+}
+
+function kirimWAFix() {
+  let nama = document.getElementById("nama").value;
+  let meja = document.getElementById("meja").value;
+  let catatan = document.getElementById("catatan").value;
+  let nomor = "6285813544008";
+
+  let pesan = `*Halo Admin Ruang Rasa Coffe!*\n\n`;
+  pesan += `*Nama:* ${nama}\n`;
+  pesan += `*Meja:* ${meja}\n`;
+  pesan += `────────────────────\n`;
+  pesan += `*DAFTAR PESANAN:*\n`;
+
+  keranjang.forEach(item => {
+    pesan += `${item.nama} (x${item.qty})\n`;
+  });
+
+
+  if (catatan) {
+    pesan += `\n*Catatan:* ${catatan}\n`;
+  }
+  let total = keranjang.reduce((sum, item) => sum + item.harga * item.qty, 0);
+  pesan += `────────────────────\n`;
+  pesan += `*TOTAL: Rp ${total.toLocaleString('id-ID')}*`;
+
+  window.open(`https://wa.me/${nomor}?text=${encodeURIComponent(pesan)}`, "_blank");
+
+  // Reset form
+  keranjang = [];
+  renderKeranjang();
+  document.getElementById("nama").value = "";
+  document.getElementById("meja").value = "";
+  document.getElementById("catatan").value = "";
+  tutupStruk();
+}
+
+    function tutupStruk() {
+      document.getElementById("modalStruk").classList.add("hidden");
+    }
+  </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVFQoLsRfjAiGtc9SQA3wcpxC8jY5eEGpcGzG1gRqWkZ6bVvY5u77" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
